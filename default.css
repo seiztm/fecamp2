@@ -1,6 +1,30 @@
 @charset "utf-8";
-.container{
-	max-width: 960px;
-	background: silver;
-	margin: 0 auto; 
+/* html reset */
+header,
+footer,
+section,
+article,
+aside,
+main,
+figure,
+figcaption{
+	display: block;
 }
+/*header ~ figcaption : html5에 새로 등장한 block 태그들*/
+
+
+/* Media Query (반응형 웹을 개발하기 위한 툴) */
+/* All */
+
+/* Mobile */
+
+/* Tablet & Desktop */
+@media (min-width: 768px){
+	body{
+		background: red;
+	}
+}
+
+/* Tablet */
+
+/* Desktop */
