@@ -11,20 +11,136 @@ figcaption{
 	display: block;
 }
 /*header ~ figcaption : html5에 새로 등장한 block 태그들*/
-
-
+html,
+body{min-height: 100%;}
+body{
+	margin: 0;
+	min-width: 320px;
+}
 /* Media Query (반응형 웹을 개발하기 위한 툴) */
 /* All */
-
+body{
+	background: -webkit-linear-gradient(#ccc,#fff);
+	background: -moz-linear-gradient(#000,#fff);
+	background: -ms-linear-gradient(#000,#fff);
+	background: -o-linear-gradient(#000,#fff);
+	background: linear-gradient(#eee,#fff);
+}
+/*나중에 선언한 코드 (linear-gradient)가 앞에 선언한 코드를 override하기에
+webkit-linear 보다 linear가 우선적으로 보인다*/
 /* Mobile */
+/* media query를 지원하지 않는 단말의 모바일 기계가 있기 때문에 따로 사용X (globally)*/
 
-/* Tablet & Desktop */
-@media (min-width: 768px){
-	body{
-		background: red;
-	}
+.header>h1{
+	font-size: 28px;
+	text-shadow: 1px 1px 0 #fff, -2px -1px 1px #ccc;}
+
+.search>[type="search"]{
+	border: 3px solid #bbb;
+	height: 32px;
+	width: 160px;
+	box-shadow: 0 0 4px #ccc inset;
 }
 
+/*inset은 박스 안쪽으로 shadow 떨어뜨리게 하는 기능*/
+.search>input{
+	vertical-align: top;
+	border-radius: 10px;
+}
+/*input은 inline-block, vertical-align은 inline이나 inline-block에만 적용됨*/
+/*border-radius는 좌측 상단 꼭지점부터 돔*/
+
+.search>[type="submit"]{
+	width: 50px;
+	height: 32px;
+	background: #fff;
+	border: 3px solid #ccc;
+	box-shadow: 0 0 4px #aaa;
+}
+/* Mobile */
+
+.gnb>h2{ height: 1px;
+		 position: absolute;
+		 overflow: hidden;
+		 margin: 0;}
+
+.gnb>button{ /*button은 border box 속성 가짐*/
+	border: 0;
+	background: #666 url(xxx.png) no-repeat; /*no-repeat없으면 바둑판식 배열*/
+	width: 40px;
+	height: 36px;
+	padding: 36px 0 0 0;
+	overflow: hidden;
+	border-radius: 3px;
+	position: absolute;
+	cursor: pointer;/*마우스 모양 손모양으로 바꾸게 해줌*/
+	top: 15px;
+	right: 10px;
+}
+.gnb>button:before{
+	content: "";
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	height: 4px;
+	width: 32px;
+	border-top: 12px double #fff;
+	border-bottom: 12px double #fff;
+}
+.gnb ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.gnb a{
+	display: block;
+	background: #666;
+	color: #fff;
+	line-height: 32px;
+	text-decoration: none;
+	padding: 0 10px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; /*ellipsis 속성은 inline에는 적용되지 않음*/
+}
+.gnb>ul{
+	background: #444;
+	border-radius: 4px;
+	overflow: hidden;
+	display: none;
+}
+.gnb>ul>li>a{
+	background: #444;
+}
+.gnb>ul>li>ul>li{/* .gnb li li 와 선택자 같음*/
+	border-top: 1px dotted #444;
+}
+.gnb li li :first-child{ /* .gnb>ul>li>ul>li와 선택자 같음*/
+	border: 0;
+}
+.search{
+	margin: 15px 0;
+	padding: 0 60px 0 0;
+	position: relative;
+}
+.search>[type="search"]{
+	display: block;
+	width: 100%;
+}
+.search>[type="submit"]{
+	width: 50px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+/* Tablet & Desktop */
+@media (min-width: 768px){body{background: silver;}}
+
 /* Tablet */
+@media (min-width: 768px) and (max-width: 1024px){body{background: silver;}}
 
 /* Desktop */
+@media (min-width: 1025px){body{background: silver}}
+
+/*css에서는 나중에 쓰인 코드가 앞에 쓰인 코드를 override*/
+
